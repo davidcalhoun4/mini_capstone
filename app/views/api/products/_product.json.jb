@@ -12,5 +12,5 @@
   supplier_name: product.supplier.name,
   supplier_email: product.supplier.email,
   supplier_phone_number: product.supplier.phone_number,
-  image: product.images
+  images: product.images
 }
