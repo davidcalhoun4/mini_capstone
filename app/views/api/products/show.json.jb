@@ -1,1 +1,4 @@
+# product_hash = 
 render partial: "product.json.jb", locals: { product: @product }
+# product_hash[:images] = @prodcut.images
+# product_hash

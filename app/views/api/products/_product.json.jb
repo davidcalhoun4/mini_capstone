@@ -2,7 +2,6 @@
   id: product.id,
   name: product.name,
   price: product.price,
-  image_url: product.image_url,
   description: product.description,
   inventory: product.inventory,
   total: {
@@ -12,5 +11,6 @@
   },
   supplier_name: product.supplier.name,
   supplier_email: product.supplier.email,
-  supplier_phone_number: product.supplier.phone_number
+  supplier_phone_number: product.supplier.phone_number,
+  image: product.images
 }

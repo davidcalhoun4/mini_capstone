@@ -5,6 +5,8 @@ class Product < ApplicationRecord
     # Supplier.find_by(id: supplier_id)
   # end
 
+  has_many :images
+
 
 
   validates :name,  presence: true
