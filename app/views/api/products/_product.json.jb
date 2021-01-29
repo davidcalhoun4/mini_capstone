@@ -13,5 +13,6 @@
   supplier_email: product.supplier.email,
   supplier_phone_number: product.supplier.phone_number,
   images: product.images,
-  current_user: current_user
+  current_user: current_user,
+  categories: product.categories
 }

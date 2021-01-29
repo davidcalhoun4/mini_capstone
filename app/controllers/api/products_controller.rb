@@ -1,23 +1,41 @@
 class Api::ProductsController < ApplicationController
   
   before_action :authenticate_admin, except: [:index, :show]
+  #only admin has authorization to all methods
 
   def index
     @products = Product.all
+    # if params[:category]
+    #   @products = Product.categories
+    # end
+
+    # if params[:category]
+    #   @products = Product.where("title iLIKE ?", "%#{params[:category]}%")
+    # end
+
+    # if params[:category]
+    #   @products = @products.select do |product|
+    #     product.categories
+    #   end
+
+    if params[:category]
+      category = Category.find_by("name = ?", params[:category])
+      @products = category.products 
+    end
 
     if params[:discount]
-      @products = @products.where("price < ?", 10)
+       @products = @products.where("price < ?", 10)
     end
 
     if params[:search]
       @products = @products.where("name iLIKE ? OR description iLIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     end
 
-    #sort by lowest price 
+    # sort by lowest price 
     # products?sort=price&sort_order=asc
 
-    #sort by highest price
-    #products?sort=price&sort_order=desc
+    # sort by highest price
+    # products?sort=price&sort_order=desc
 
     if params[:sort] == "price"
 
