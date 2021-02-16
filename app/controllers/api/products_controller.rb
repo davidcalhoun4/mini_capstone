@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
   
-  before_action :authenticate_admin, except: [:index, :show]
+  # before_action :authenticate_admin, except: [:index, :show]
   #only admin has authorization to all methods
 
   def index
@@ -60,7 +60,8 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      inventory: params[:inventory]
+      inventory: params[:inventory],
+      supplier_id: params[:supplier_id]
     )
     if @product.save
       render "show.json.jb"
